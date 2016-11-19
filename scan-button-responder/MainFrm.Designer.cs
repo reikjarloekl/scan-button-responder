@@ -33,18 +33,18 @@
             this.lbEvent = new System.Windows.Forms.Label();
             this.tbEventName = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.cbProfiles = new System.Windows.Forms.ComboBox();
             this.lbFileName = new System.Windows.Forms.Label();
+            this.tbFileName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 188);
+            this.button1.Location = new System.Drawing.Point(289, 112);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "Save Event";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -75,23 +75,13 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(112, 188);
+            this.button2.Location = new System.Drawing.Point(289, 205);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
+            this.button2.Text = "Scan";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(208, 188);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // cbProfiles
             // 
@@ -111,14 +101,21 @@
             this.lbFileName.TabIndex = 7;
             this.lbFileName.Text = "lbFileName";
             // 
+            // tbFileName
+            // 
+            this.tbFileName.Location = new System.Drawing.Point(15, 208);
+            this.tbFileName.Name = "tbFileName";
+            this.tbFileName.Size = new System.Drawing.Size(268, 20);
+            this.tbFileName.TabIndex = 8;
+            // 
             // MainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(428, 340);
+            this.Controls.Add(this.tbFileName);
             this.Controls.Add(this.lbFileName);
             this.Controls.Add(this.cbProfiles);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.tbEventName);
             this.Controls.Add(this.lbEvent);
@@ -139,9 +136,9 @@
         private System.Windows.Forms.Label lbEvent;
         private System.Windows.Forms.TextBox tbEventName;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ComboBox cbProfiles;
         private System.Windows.Forms.Label lbFileName;
+        private System.Windows.Forms.TextBox tbFileName;
     }
 }
 

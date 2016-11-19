@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -42,16 +43,21 @@ namespace scan_button_responder
                 {
                     Id = getEventGuid(),
                     Name = tbEventName.Text,
-                    ProfileName = cbProfiles.GetItemText(cbProfiles.SelectedItem)
+                    ProfileName = GetSelectedProfileName()
                 };
                 EventModel.AddEvent(evt);
             }
             else
             {
-                evt.ProfileName = cbProfiles.GetItemText(cbProfiles.SelectedItem);
+                evt.ProfileName = GetSelectedProfileName();
                 evt.Name = tbEventName.Text;
                 EventModel.UpdateEvent(evt);
             }
+        }
+
+        private string GetSelectedProfileName()
+        {
+            return cbProfiles.GetItemText(cbProfiles.SelectedItem);
         }
 
         private void MainFrm_Load(object sender, EventArgs e)
@@ -77,19 +83,28 @@ namespace scan_button_responder
             if (evt != null)
             {
                 cbProfiles.SelectedIndex = cbProfiles.FindStringExact(evt.ProfileName);
-                lbFileName.Text = NapsProfiles.GetAutoSaveFilename(evt.ProfileName);
+                var fileName = NapsProfiles.GetAutoSaveFilename(evt.ProfileName);
+                lbFileName.Text = fileName;
+                tbFileName.Enabled = fileName.Contains("$(x)");
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
             var napsApp = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), @"NAPS2\NAPS2.Console.exe");
-
+            var fileName = NapsProfiles.GetAutoSaveFilename(GetSelectedProfileName());
+            var args = "-p \""+ GetSelectedProfileName() + "\"";
+            if (fileName.Contains("$(x)"))
+            {
+                fileName = fileName.Replace("$(x)", tbFileName.Text.Replace(' ', '-'));
+                args += " -o \"" + fileName + "\"";
+            }
+            else args += " -a";
+            MessageBox.Show(args);
+            var p = new Process();
+            p.StartInfo.FileName = napsApp;
+            p.StartInfo.Arguments = args;
+            p.Start();
         }
     }
 }

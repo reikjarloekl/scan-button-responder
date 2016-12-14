@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using ScanToEvernote;
 using scan_button_responder.StiWorks;
@@ -7,6 +8,8 @@ namespace scan_button_responder
 {
     static class Program
     {
+
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -35,9 +38,11 @@ namespace scan_button_responder
                     return;
                 }
             }
+            var evtHandler = new EventHandler();
+            if (evtHandler.HandleEvent()) return;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainFrm());
+            Application.Run(new EventsFrm());
         }
     }
 }

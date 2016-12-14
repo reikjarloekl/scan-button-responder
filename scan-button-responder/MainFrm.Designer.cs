@@ -36,6 +36,7 @@
             this.cbProfiles = new System.Windows.Forms.ComboBox();
             this.lbFileName = new System.Windows.Forms.Label();
             this.tbFileName = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -108,11 +109,22 @@
             this.tbFileName.Size = new System.Drawing.Size(268, 20);
             this.tbFileName.TabIndex = 8;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(41, 261);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "Edit Events";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // MainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(428, 340);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.tbFileName);
             this.Controls.Add(this.lbFileName);
             this.Controls.Add(this.cbProfiles);
@@ -139,6 +151,7 @@
         private System.Windows.Forms.ComboBox cbProfiles;
         private System.Windows.Forms.Label lbFileName;
         private System.Windows.Forms.TextBox tbFileName;
+        private System.Windows.Forms.Button button3;
     }
 }
 

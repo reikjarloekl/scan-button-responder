@@ -3,8 +3,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using System.Xml;
-using System.Xml.Linq;
 using scan_button_responder.Model;
 using scan_button_responder.Model.Entities;
 using scan_button_responder.NAPS;
@@ -27,11 +25,7 @@ namespace scan_button_responder
                 match.NextMatch();
                 return match.Groups[1].Value;
             }
-            else
-            {
-                MessageBox.Show("RegEx not found in " + args[2]);
-                throw new InvalidDataException();
-            }
+            return null;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -105,6 +99,11 @@ namespace scan_button_responder
             p.StartInfo.FileName = napsApp;
             p.StartInfo.Arguments = args;
             p.Start();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            new EventsFrm().Show();
         }
     }
 }

@@ -47,7 +47,7 @@ namespace scan_button_responder
                     {
                         fileName = fileName.Replace("$(x)", frm.Result.Replace(' ', '-'));
                         naps.SetAutoSaveFilename(fileName);                        
-                    } else naps.UseProfilesAutosaveSettings();
+                    } else return;
                 } else naps.UseProfilesAutosaveSettings();
             }
             naps.Run();

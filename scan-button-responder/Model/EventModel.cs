@@ -14,7 +14,9 @@ namespace scan_button_responder.Model
 
         private static String GetConnectionString()
         {
-            return "filename=" + Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), DbName);
+            var appDataPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Naps2ScannerButton\\");
+            Directory.CreateDirectory(appDataPath);
+            return "filename=" + Path.Combine(appDataPath, DbName);
         }
 
         public static Event FindEventByGuid(String guid)

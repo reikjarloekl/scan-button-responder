@@ -13,6 +13,13 @@ namespace scan_button_responder
             InitializeComponent();
         }
 
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+            TopMost = true;
+            BringToFront();
+        }
+
         private void btnOk_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;

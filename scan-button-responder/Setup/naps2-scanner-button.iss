@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "NAPS2 Scanner Button"
-#define MyAppVersion "1.0"
+#define MyAppVersion "1.1"
 #define MyAppPublisher "Jörn Bungartz"
 #define MyAppURL "http://bungartz.pm/"
 #define MyAppExeName "scan-button-responder.exe"

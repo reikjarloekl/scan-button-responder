@@ -24,6 +24,13 @@ namespace scan_button_responder
             btnOk.Enabled = false;
         }
 
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+            TopMost = true;
+            BringToFront();
+        }
+
         private void btnOk_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(tbName.Text))
